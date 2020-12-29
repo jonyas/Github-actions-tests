@@ -1,0 +1,17 @@
+name: PR Approvals Github Action
+on:
+  pull_request_review:
+    branches:
+      - 'pre-release/**'
+      - 'prerelease/**'
+      - 'hotfix/**'
+    types: [edited, submitted]
+jobs:
+  run:
+    name: Test if works
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Echo
+        run: |
+          echo "Works"
+
