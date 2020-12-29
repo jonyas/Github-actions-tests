@@ -1,15 +1,12 @@
 name: PR Approvals Github Action
 on:
   pull_request_review:
-    branches:
-      - 'pre-release/**'
-      - 'prerelease/**'
-      - 'hotfix/**'
     types: [edited, submitted]
 jobs:
   run:
     name: Test if works
     runs-on: [ubuntu-latest]
+    if: contains(github.event.pull_request.base.ref, 'pre-release') != true
     steps:
       - name: Echo
         run: |
